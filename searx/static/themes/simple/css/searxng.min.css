@@ -2905,13 +2905,12 @@ html.no-js #clear_search.hide_if_nojs {
 }
 
 /* True Search Landing page css */
-body{
+.index_endpoint, .search_endpoint{
     background: url(./images/landing-background.png) no-repeat;
     background-size: cover;
-    height: 100%;
+    height: 100vh;
     width: 100%;
 }
-
 
 .landing-page {
     position: relative;
@@ -3305,6 +3304,7 @@ main {
 }
 
 footer {
+    display: none;
     clear: both;
     min-height: 4rem;
     padding: 1rem 0;
@@ -3932,13 +3932,14 @@ summary.title {
 }
 
 #links_on_top {
+    display: flex;
     position: absolute;
     right: 1.8rem;
     text-align: right;
     top: 2.2rem;
     padding: 0;
     border: 0;
-    display: flex;
+    display: none;
     align-items: center;
     font-size: 1em;
     color: var(--color-search-font)
