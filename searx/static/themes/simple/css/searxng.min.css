@@ -2905,10 +2905,10 @@ html.no-js #clear_search.hide_if_nojs {
 }
 
 /* True Search Landing page css */
-.search_endpoint{
+body{
     background: url(./images/landing-background.png) no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
