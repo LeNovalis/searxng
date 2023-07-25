@@ -2926,7 +2926,7 @@ body {
 .landing-page .container {
     width: 650px;
     position: absolute;
-    top: 20vh;
+    /* top: 20vh; */
     /* bottom: 50%; */
     left: 50%;
     transform: translate(-50%, 50%);
@@ -4335,17 +4335,12 @@ summary.title {
     }
 }
 
-/* @media screen and (max-width: 480px) and (min-width: 767px) {
-    .landing-page .container {
-        top: 10vh;
-    }
-} */
 
 
 @media screen and (max-width: 767px) {
     .landing-page .container {
         width: 70%;
-        top: 15vh;
+        /* top: 15vh; */
     }
 
     .truesearch_title {
@@ -4359,9 +4354,6 @@ summary.title {
 }
 
 @media screen and (max-width: 480px) {
-    .landing-page .container {
-        top: 0;
-    }
 
     .landing-page .feedback-container {
         margin-top: 5vh;
