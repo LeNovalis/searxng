@@ -4,6 +4,15 @@
   lang="{{ locale_rfc5646 }}" {% if rtl %} dir="rtl" {% endif %}>
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PL11GW977Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-PL11GW977Y');
+  </script>
   <meta charset="UTF-8" />
   <meta name="description" content="SearXNG — a privacy-respecting, open metasearch engine">
   <meta name="keywords" content="SearXNG, search, search engine, metasearch, meta search">
@@ -41,7 +50,7 @@
   <script src="https://unpkg.com/feedbackfin@^1" defer></script>
   <script>
     window.feedbackfin = { config: {}, ...window.feedbackfin };
-    window.feedbackfin.config.url = "https://rowy-hooks.run.app/wh/...";
+    window.feedbackfin.config.url = "/feedback";
   </script>
 </head>
 

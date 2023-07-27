@@ -128,6 +128,9 @@ from searx.sxng_locales import sxng_locales
 from searx.search import SearchWithPlugins, initialize as search_initialize
 from searx.network import stream as http_stream, set_context_network_name
 from searx.search.checker import get_result as checker_get_result
+import smtplib
+from email.mime.text import MIMEText
+from .config import SMTP_DATA, SUBJECT, TO_MAIL
 
 logger = logger.getChild('webapp')
 
@@ -1282,6 +1285,32 @@ def config():
         }
     )
 
+@app.route('/feedback', methods=['GET', 'POST'])
+def feedback():
+    """Send feedback to the email."""
+    context = request.json
+    script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+    rel_path = "templates/simple/feedback_mail.html"
+    abs_file_path = os.path.join(script_dir, rel_path)
+    with open(abs_file_path, 'r') as file:
+        template_content = file.read()
+
+    # Store the content as a triple-quoted string
+    html_msg_template = f"""{template_content}"""
+    html_msg = html_msg_template.format(feedbackType=context['feedbackType'], message=context['message'])
+    # Compose the email message
+    message = MIMEText(html_msg, "html")
+    message['Subject'] = SUBJECT
+    # message['From'] = SMTP_DATA['user']
+    # message['To'] = TO_MAIL
+
+    # Send the email
+    with smtplib.SMTP(SMTP_DATA['host'], SMTP_DATA['port'], timeout=SMTP_DATA['timeout']) as server:
+        if SMTP_DATA['tls']:
+            server.starttls()
+        server.login(SMTP_DATA['user'], SMTP_DATA['password'])
+        server.sendmail(SMTP_DATA['user'], TO_MAIL, message.as_string())
+    return Response('success')
 
 @app.errorhandler(404)
 def page_not_found(_e):
