@@ -130,7 +130,7 @@ from searx.network import stream as http_stream, set_context_network_name
 from searx.search.checker import get_result as checker_get_result
 import smtplib
 from email.mime.text import MIMEText
-from .config import SMTP_DATA, SUBJECT, TO_MAIL
+from searx.config import SMTP_DATA, SUBJECT, TO_MAIL
 
 logger = logger.getChild('webapp')
 
@@ -1300,6 +1300,7 @@ def feedback():
     html_msg = html_msg_template.format(feedbackType=context['feedbackType'], message=context['message'])
     # Compose the email message
     message = MIMEText(html_msg, "html")
+    print(SMTP_DATA)
     message['Subject'] = SUBJECT
     # message['From'] = SMTP_DATA['user']
     # message['To'] = TO_MAIL
