@@ -1300,7 +1300,6 @@ def feedback():
     html_msg = html_msg_template.format(feedbackType=context['feedbackType'], message=context['message'])
     # Compose the email message
     message = MIMEText(html_msg, "html")
-    print(SMTP_DATA)
     message['Subject'] = SUBJECT
     # message['From'] = SMTP_DATA['user']
     # message['To'] = TO_MAIL
