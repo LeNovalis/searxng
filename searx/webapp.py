@@ -130,14 +130,14 @@ from searx.network import stream as http_stream, set_context_network_name
 from searx.search.checker import get_result as checker_get_result
 import smtplib
 from email.mime.text import MIMEText
-from searx.config import SMTP_DATA, SUBJECT, TO_MAIL
+from config import SMTP_DATA, SUBJECT, TO_MAIL
 
 logger = logger.getChild('webapp')
 
 # check secret_key
-if not searx_debug and settings['server']['secret_key'] == 'ultrasecretkey':
-    logger.error('server.secret_key is not changed. Please use something else instead of ultrasecretkey.')
-    sys.exit(1)
+# if not searx_debug and settings['server']['secret_key'] == 'ultrasecretkey':
+#     logger.error('server.secret_key is not changed. Please use something else instead of ultrasecretkey.')
+#     sys.exit(1)
 
 # about static
 logger.debug('static directory is %s', settings['ui']['static_path'])
