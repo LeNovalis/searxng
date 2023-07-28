@@ -1,11 +1,11 @@
 SMTP_DATA = {
-    "host": "smtp.mail.yahoo.com", 
+    "host": "smtp.office365.com", 
     "port": 587, #STARTTLS Port - 25, 587 or 2587
-    "timeout": 5,
-    "user": "truesearchfeedback@yahoo.com",
-    "password": 'feedbackerpassing75',
+    "timeout": 10,
+    "user": "postmaster@true-search.io",
+    "password": '2postpost@915',
     "tls":True,
 }
 
-TO_MAIL = ['mukund.kulkarni@wishtreetech.com']
+TO_MAIL = ['roszellmc@protonmail.com']
 SUBJECT = "Feedback"
