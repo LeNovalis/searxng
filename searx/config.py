@@ -1,7 +1,7 @@
 SMTP_DATA = {
     "host": "smtp.office365.com", 
     "port": 587, #STARTTLS Port - 25, 587 or 2587
-    "timeout": 15,
+    "timeout": 30,
     "user": "postmaster@true-search.io",
     "password": '2postpost@915',
     "tls":True,

@@ -1289,14 +1289,18 @@ def config():
 def feedback():
     """Send feedback to the email."""
     context = request.json
-    script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
-    rel_path = "templates/simple/feedback_mail.html"
-    abs_file_path = os.path.join(script_dir, rel_path)
-    with open(abs_file_path, 'r') as file:
-        template_content = file.read()
+    # script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+    # rel_path = "templates/simple/feedback_mail.html"
+    # abs_file_path = os.path.join(script_dir, rel_path)
+    # with open(abs_file_path, 'r') as file:
+    #     template_content = file.read()
 
     # Store the content as a triple-quoted string
-    html_msg_template = f"""{template_content}"""
+    # html_msg_template = f"""{template_content}"""
+    html_msg_template = """
+                        <strong>Feedback Type:</strong> {feedbackType}<br>
+                        <strong>Message:</strong> {message}<br>
+                        """
     html_msg = html_msg_template.format(feedbackType=context['feedbackType'], message=context['message'])
     # Compose the email message
     message = MIMEText(html_msg, "html")
