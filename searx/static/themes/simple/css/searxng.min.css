@@ -2905,7 +2905,8 @@ html.no-js #clear_search.hide_if_nojs {
 }
 
 /* True Search Landing page css */
-.index_endpoint{
+.index_endpoint,
+.search_endpoint {
     background: url(./images/landing-background.png) no-repeat;
     background-size: cover;
     height: 100vh;
@@ -2957,6 +2958,16 @@ html.no-js #clear_search.hide_if_nojs {
     line-height: normal;
     text-align: right;
 }
+
+.landing-page a {
+    color: #5C5C5C !important;
+}
+
+.landing-page a:hover {
+    color: var(--color-url-visited-font) !important;
+}
+
+
 
 .landing-page #search_header {
     padding: 0;
