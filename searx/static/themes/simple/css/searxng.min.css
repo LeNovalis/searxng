@@ -1,5 +1,7 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 html {
     line-height: 1.15;
@@ -2814,6 +2816,7 @@ table.engine-error th.engine-error-type {
     flex-direction: row;
     white-space: nowrap;
     box-shadow: none;
+    border: 1px solid #1E606C;
 }
 
 
@@ -2848,7 +2851,7 @@ html.no-js #clear_search.hide_if_nojs {
 #send_search {
     display: block;
     margin: 0;
-    padding: .8rem;
+    padding: .2rem;
     background: none repeat scroll 0 0 var(--color-search-background);
     border: none;
     outline: 0;
@@ -2875,7 +2878,7 @@ html.no-js #clear_search.hide_if_nojs {
 
 #send_search:hover {
     cursor: pointer;
-    background-color: #6a35ff;
+    /* background-color: #6a35ff; */
     color: var(--color-search-background)
 }
 
@@ -2907,17 +2910,20 @@ html.no-js #clear_search.hide_if_nojs {
 /* True Search Landing page css */
 .index_endpoint,
 .search_endpoint {
-    background: url(./images/landing-background.png) no-repeat;
+    background: url(./images/landing-bg.png) no-repeat;
     background-size: cover;
     height: 100vh;
     width: 100%;
+    /* border-bottom-left-radius: 45px;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+    border-bottom-right-radius: 45px; */
 }
-
 
 .landing-page {
     position: relative;
     color: #5C5C5C;
-    font-family: Comfortaa;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -2925,22 +2931,34 @@ html.no-js #clear_search.hide_if_nojs {
 }
 
 .landing-page .container {
-    width: 650px;
-    position: absolute;
+    display: flex;
+    height: calc(100vh - 159px);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landing-page .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1200px;
+    /* position: absolute; */
     /* top: 20vh; */
     /* bottom: 50%; */
-    left: 50%;
-    transform: translate(-50%, 50%);
+    /* left: 50%; */
+    /* transform: translate(-50%, 50%); */
     text-align: center;
+    column-gap: 5%;
+    align-items: center;
 }
 
 .truesearch_title {
-    font-family: Comfortaa;
-    color: #5C5C5C;
+    font-family: 'Poppins', sans-serif;
+    color: #4F4F4F;
     font-size: 3.75rem;
     font-weight: 700;
     margin: 0;
-    line-height: 4.125rem;
+    line-height: 4.825rem;
 }
 
 .landing-page .description {
@@ -2967,8 +2985,6 @@ html.no-js #clear_search.hide_if_nojs {
     color: var(--color-url-visited-font) !important;
 }
 
-
-
 .landing-page #search_header {
     padding: 0;
     background: none;
@@ -2986,20 +3002,47 @@ html.no-js #clear_search.hide_if_nojs {
 
 .results_endpoint {
     height: 100% !important;
+
 }
 
 .landing-page .feedback-container {
-    margin-top: 10vh;
+    /* margin-top: 10vh; */
     text-align: right;
+    width: 100%;
 }
 
 .landing-page .feedback-btn {
-    background: #6a35ff;
+    background: linear-gradient(90deg, #8C4E82 0%, #7988EE 100%);
     color: white;
-    border: 1px solid #6a35ff;
-    padding: 10px 16px;
-    border-radius: 5px;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 30px;
     cursor: pointer;
+}
+
+.landing-page .text-container {
+    width: 40%;
+    text-align: left;
+}
+
+.landing-page .search-container {
+    width: 55%;
+}
+
+.landing-page .search_btn {
+    background: linear-gradient(90deg, #2C5371 0%, #10CFC8 100%);
+    color: white;
+    border-radius: 30px;
+    padding: 10px 38px;
+}
+
+.results_endpoint main {
+    margin-bottom: 2rem;
+}
+
+.index_endpoint main,
+.search_endpoint main {
+    margin-top: 5rem;
 }
 
 /* True Search Landing page css ends*/
@@ -3306,8 +3349,7 @@ body {
 
 main {
     width: 100%;
-    margin-bottom: 2rem;
-    flex: 1
+    flex: 1;
 }
 
 .page_with_header {
@@ -3321,7 +3363,7 @@ footer {
     padding: 1rem 0;
     width: 100%;
     text-align: center;
-    background-color: var(--color-footer-background);
+    background-color: transparent;
     border-top: 1px solid var(--color-footer-border);
     overflow: hidden;
     z-index: 99;
@@ -4173,6 +4215,8 @@ summary.title {
     margin-right: 4rem
 }
 
+@media screen {}
+
 @media screen and (max-width:50em) {
     #links_on_top span {
         display: none
@@ -4347,28 +4391,40 @@ summary.title {
     }
 }
 
-
-
-@media screen and (max-width: 767px) {
-    .landing-page .container {
-        width: 70%;
-        /* top: 15vh; */
+@media screen and (max-width: 1250px) {
+    .landing-page .content-wrapper {
+        width: 80vw;
     }
 
+    .index_endpoint,
+    .search_endpoint {
+        border-bottom-left-radius: 45px;
+        border-top-left-radius: 45px;
+        border-top-right-radius: 45px;
+        border-bottom-right-radius: 45px;
+    }
+}
+
+@media screen and (max-width: 767px) {
     .truesearch_title {
-        font-size: 2.5rem;
-        line-height: 2.75rem;
+        font-size: 3.125rem;
     }
 
     .landing-page .description {
         margin: 0.625rem 0 1.875rem 0;
     }
-}
 
-@media screen and (max-width: 480px) {
+    .landing-page .content-wrapper {
+        flex-direction: column;
+    }
 
-    .landing-page .feedback-container {
-        margin-top: 5vh;
+    .landing-page .text-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .landing-page .search-container {
+        width: 100%;
     }
 }
 
