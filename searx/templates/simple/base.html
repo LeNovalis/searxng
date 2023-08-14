@@ -52,6 +52,14 @@
     window.feedbackfin = { config: {}, ...window.feedbackfin };
     window.feedbackfin.config.url = "/feedback";
   </script>
+  <script>
+    function card_selection(id){
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(c => c.classList.remove('selected'));
+      var selected_div = document.getElementById(id);
+      selected_div.classList.add('selected');
+    }
+</script>
 </head>
 
 <body class="{{ endpoint }}_endpoint">
