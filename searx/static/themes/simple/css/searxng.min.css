@@ -503,7 +503,7 @@ html.no-js #clear_search.hide_if_nojs{display:none}
 .search_filters select:focus,.search_filters select:hover{color:var(--color-base-font)}
 .index_endpoint,.search_endpoint{background:url(images/landing-bg.jpg) no-repeat;background-size:cover;height:100vh;width:100%}
 .landing-page{position:relative;color:#393939;font-family:Poppins,sans-serif;font-size:16px;font-style:normal;font-weight:400;line-height:normal;margin: 0 5px;}
-.landing-page .container{display:flex;flex-direction:column;align-items:center;overflow-y:auto;row-gap:8rem;height: calc(100vh - 159px);height: calc(100vh - 160px);}
+.landing-page .container{display:flex;flex-direction:column;align-items:center;overflow-y:auto;row-gap:8rem;height: calc(100vh - 160px);}
 .landing-page .content-wrapper{display:flex;flex-wrap:wrap;width:650px;text-align:center;column-gap:5%;align-items:center;margin-top: 1rem;}
 .landing-page .title{font-family:Poppins,sans-serif;color:#393939;font-size:38px;font-weight:700;margin:0;line-height:3rem}
 .landing-page .description{font-size:16px;font-style:normal;font-weight:400;line-height:22px;margin:.625rem 0 2.5rem 0}
@@ -787,6 +787,9 @@ article[data-vim-selected]{border:1px solid var(--color-result-vim-arrow);border
 .result-videos img.thumbnail{float:none!important}
 .result-videos .content{overflow:inherit}
 }
+@media screen and (min-width:1200px) and (min-height:800px){
+.landing-page .container{justify-content: center;}
+}
 @media screen and (max-width:1200px){
 .card{width:250px}
 .cards{width:100%;flex-wrap:wrap}
@@ -798,18 +801,9 @@ article[data-vim-selected]{border:1px solid var(--color-result-vim-arrow);border
 .landing-page .description{margin:.625rem 0 1.875rem 0}
 .landing-page .content-wrapper{width:80vw}
 }
-/* @media screen and (max-height:750px){
-.landing-page .container{justify-content: space-between;}
-} */
-@media screen and (min-width:1109px) and (min-height: 850px){
-    .landing-page .container{justify-content: center;}
-}
 @media screen and (max-width:1024px){
-    .landing-page .container{
-        row-gap: 5rem;
-    }
+.landing-page .container{row-gap: 5rem;}
 }
 @media screen and (min-width:1024px) and (max-width:1200px){
-    .card-title{top: 55%;}
-    }
+.card-title{top: 55%;}}
 pre code{white-space:pre-wrap}
