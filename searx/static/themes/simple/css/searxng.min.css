@@ -555,7 +555,7 @@ html.no-js #clear_search.hide_if_nojs{display:none}
 /* .card.selected:active{box-shadow: none;border: 0;} */
 /* .card.selected:active .card-title{opacity:0} */
 .more-opt{margin:15px 40px 0 0;font-weight:normal;font-size: 14px;line-height: 21px;text-align: right;}
-.under-construction{position: absolute;top: 20px;right: 102px;}
+.under-construction{position: absolute;top: 20px;right: 210px;}
 @media screen and (max-width:79.75em){
 #search_header{padding:1.5em .5rem 0 .5rem;column-gap:.5rem}
 .search_filters{margin-top:.6rem;margin-right:0;margin-bottom:0;margin-left:3.5rem}
