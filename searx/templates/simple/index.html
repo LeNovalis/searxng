@@ -10,36 +10,44 @@
 
 <div class="landing-page">
     <div class="container">
-        <h1 class="truesearch_title">True Search</h1>
-        <h2 class="description">Prototyping charitable, privacy respecting approaches in search!</h2>
-        {% include 'simple/simple_search.html' %}
-        <div class="dropdown">
-            <label class="select-label">Select a charity <span>{{ icon_big('drop-down') }}</span></label>
-            <div class="dropdown-list">
-                <div class="dropdown-list-item">
-                    <input type="radio" name="charity-list" id="charity-1">
-                    <label for="charity-1">Charity 1</label>
-                </div>
-                <div class="dropdown-list-item">
-                    <input type="radio" name="charity-list" id="charity-2">
-                    <label for="charity-2">Charity 2</label>
-                </div>
-                <div class="dropdown-list-item">
-                    <input type="radio" name="charity-list" id="charity-3">
-                    <label for="charity-3">Charity 3</label>
-                </div>
-                <div class="dropdown-list-item">
-                    <input type="radio" name="charity-list" id="charity-4">
-                    <label for="charity-4">Charity 3</label>
-                </div>
-                <div class="dropdown-list-item ">
-                    <button type="submit" class="select-submit-btn">Select this charity</button>
+        <div class="content-wrapper">
+            <h1 class="truesearch_title">True Search</h1>
+            <h2 class="description">Prototyping charitable, privacy respecting approaches in search!</h2>
+            {% include 'simple/simple_search.html' %}
+            <div class="dropdown">
+                <label class="select-label"><span id="select-label-id">Select a charity</span> <span
+                        onclick="toggleCharity()">{{ icon_big('drop-down') }}</span></label>
+                <div class="dropdown-list close-dropdown" id="charity-dropdown">
+                    <div class="dropdown-list-item">
+                        <input type="radio" name="charity-list" id="charity-1">
+                        <label for="charity-1">Charity 1</label>
+                    </div>
+                    <div class="dropdown-list-item">
+                        <input type="radio" name="charity-list" id="charity-2">
+                        <label for="charity-2">Charity 2</label>
+                    </div>
+                    <div class="dropdown-list-item">
+                        <input type="radio" name="charity-list" id="charity-3">
+                        <label for="charity-3">Charity 3</label>
+                    </div>
+                    <div class="dropdown-list-item">
+                        <input type="radio" name="charity-list" id="charity-4">
+                        <label for="charity-4">Charity 4</label>
+                    </div>
+                    <div class="dropdown-list-item">
+                        <input type="radio" name="charity-list" id="charity-5">
+                        <label for="charity-5">Charity 5</label>
+                    </div>
+                    <div>
+                        <button type="button" onclick="selectCharity()" class="select-submit-btn">Select this
+                            charity</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--Button element -->
-        <div class="feedback-container">
-            <button data-feedbackfin-button class="feedback-btn">Feedback</button>
+            <!--Button element -->
+            <div class="feedback-container">
+                <button data-feedbackfin-button class="feedback-btn">Feedback</button>
+            </div>
         </div>
     </div>
 </div>

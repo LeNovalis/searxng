@@ -8,7 +8,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PL11GW977Y"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-PL11GW977Y');
@@ -51,6 +51,38 @@
   <script>
     window.feedbackfin = { config: {}, ...window.feedbackfin };
     window.feedbackfin.config.url = "/feedback";
+  </script>
+  <script>
+    function toggleCharity() {
+      const charityDropdown = document.getElementById('charity-dropdown');
+      if (charityDropdown.classList.contains('close-dropdown')) {
+        charityDropdown.classList.remove('close-dropdown');
+        charityDropdown.classList.add('open-dropdown');
+      } else {
+        charityDropdown.classList.remove('open-dropdown');
+        charityDropdown.classList.add('close-dropdown');
+      }
+    }
+
+    function isCharitySelected() {
+      const radioButtons = document.querySelectorAll('input[name="charity-list"]');
+      for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+          return true; // At least one radio button is selected
+        }
+      }
+      return false; // No radio button is selected
+    }
+
+    function selectCharity() {
+      if (isCharitySelected()) {
+        document.getElementById('select-label-id').textContent = "Charity selected";
+        const charityDropdown = document.getElementById('charity-dropdown');
+        charityDropdown.classList.remove('open-dropdown');
+        charityDropdown.classList.add('close-dropdown');
+      }
+    }
+
   </script>
 </head>
 
