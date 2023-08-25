@@ -23,6 +23,13 @@
 {% endif %}
 
 <div id="results" class="{{ only_template }}">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7965866380212291"
+    crossorigin="anonymous"></script>
+  <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid"
+    data-ad-client="ca-pub-7965866380212291" data-ad-slot="1876130046"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
   {% if answers -%}
   <div id="answers" role="complementary" aria-labelledby="answers-title">
     <h4 class="title" id="answers-title">{{ _('Answers') }} : </h4>
@@ -43,25 +50,19 @@
     {%- if number_of_results != '0' -%}
     <p id="result_count"><small>{{ _('Number of results') }}: {{ number_of_results }}</small></p>
     {%- endif -%}
-    <div id="static-ads">
-      <details open class="sidebar-collapsable">
-        <summary class="title">Sponsored Static Ads</summary>
-        <h3>Hii this is the static ad section area</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae voluptates aspernatur maxime nesciunt
-          obcaecati
-          illo sit excepturi corporis quos, eius
-          inventore dignissimos modi ea molestiae vero totam voluptas. Vero, ipsa.</p>
-        <script async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7965866380212291"
-          crossorigin="anonymous"></script>
-        <!-- Static Ad -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7965866380212291"
-          data-ad-slot="4027936070" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </details>
-
+    <div id="static-ad-box">
+      <h4 class="static-ad-title">Ads</h4>
+      <h3 class="truesearch-title">Truesearch</h3>
+      <a href="https://true-search.io/" class="ad-link">https://true-search.io/</a>
+      <h3 class="ad-title"><a href="https://true-search.io/">The Charitable Works</a></h3>
+      <p class="ad-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae voluptates aspernatur
+        maxime nesciunt
+        obcaecati</p>
+      <div class="other-ad-links">
+        <p><a href="https://wishtreetech.com/" class="ad-link">Wishtree</a>
+          <a href="https://true-search.ai/" class="ad-link">Truesearch</a>
+        </p>
+      </div>
     </div>
     {%- if infoboxes -%}
     <div id="infoboxes">
@@ -116,13 +117,6 @@
   {% endif %}
 
   <div id="urls" role="main">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7965866380212291"
-      crossorigin="anonymous"></script>
-    <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
-      data-ad-format="fluid" data-ad-client="ca-pub-7965866380212291" data-ad-slot="1876130046"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
     {% for result in results %}
     {% if result.open_group and not only_template %}<div
       class="template_group_{{ result['template']|replace('.html', '') }}">{% endif %}
