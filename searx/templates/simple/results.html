@@ -23,13 +23,13 @@
 {% endif %}
 
 <div id="results" class="{{ only_template }}">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7965866380212291"
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7965866380212291"
     crossorigin="anonymous"></script>
   <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid"
     data-ad-client="ca-pub-7965866380212291" data-ad-slot="1876130046"></ins>
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  </script> -->
   {% if answers -%}
   <div id="answers" role="complementary" aria-labelledby="answers-title">
     <h4 class="title" id="answers-title">{{ _('Answers') }} : </h4>
@@ -50,7 +50,7 @@
     {%- if number_of_results != '0' -%}
     <p id="result_count"><small>{{ _('Number of results') }}: {{ number_of_results }}</small></p>
     {%- endif -%}
-    <div id="static-ad-box">
+    <!-- <div id="static-ad-box">
       <h4 class="static-ad-title">Ads</h4>
       <h3 class="truesearch-title">{{ affiliate_ad['title'] }}</h3>
       <a href="{{ affiliate_ad['link'] }}" onclick="redirectToTarget('{{affiliate_ad['link']}}')" class="ad-link">{{ affiliate_ad['link'] }}</a>
@@ -65,7 +65,7 @@
         </p>
       </div>
       {% endif %}
-    </div>
+    </div> -->
     {%- if infoboxes -%}
     <div id="infoboxes">
       <details open class="sidebar-collapsable">
