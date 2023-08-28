@@ -7,6 +7,7 @@
 """
 # pylint: disable=use-dict-literal
 
+from datetime import datetime, timedelta
 import hashlib
 import hmac
 import json
@@ -82,6 +83,7 @@ from searx.webutils import (
     group_engines_in_tab,
 )
 from searx.webadapter import (
+    create_time_groups,
     get_search_query_from_webapp,
     get_selected_categories,
     parse_lang,
@@ -130,7 +132,7 @@ from searx.network import stream as http_stream, set_context_network_name
 from searx.search.checker import get_result as checker_get_result
 import smtplib
 from email.mime.text import MIMEText
-from searx.config import SMTP_DATA, SUBJECT, TO_MAIL
+from searx.config import SMTP_DATA, SUBJECT, TO_MAIL, AFFILIATE_ADS
 
 logger = logger.getChild('webapp')
 
@@ -757,6 +759,15 @@ def search():
         )
     )
 
+    ads_timing = create_time_groups(len(AFFILIATE_ADS))
+    ad_index = None
+    affiliate_ad = []
+    for index, value in enumerate(ads_timing):
+        if value >= datetime.now().second:
+            ad_index = index
+            break
+    if ad_index != None:
+        affiliate_ad = AFFILIATE_ADS[ad_index]
     # search_query.lang contains the user choice (all, auto, en, ...)
     # when the user choice is "auto", search.search_query.lang contains the detected language
     # otherwise it is equals to search_query.lang
@@ -785,7 +796,8 @@ def search():
             settings['search']['languages'],
             fallback=request.preferences.get_value("language")
         ),
-        timeout_limit = request.form.get('timeout_limit', None)
+        timeout_limit = request.form.get('timeout_limit', None),
+        affiliate_ad = affiliate_ad
         # fmt: on
     )
 
