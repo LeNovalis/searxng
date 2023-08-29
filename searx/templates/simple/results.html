@@ -23,13 +23,13 @@
 {% endif %}
 
 <div id="results" class="{{ only_template }}">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7965866380212291"
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7965866380212291"
     crossorigin="anonymous"></script>
   <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid"
     data-ad-client="ca-pub-7965866380212291" data-ad-slot="1876130046"></ins>
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  </script> -->
   {% if answers -%}
   <div id="answers" role="complementary" aria-labelledby="answers-title">
     <h4 class="title" id="answers-title">{{ _('Answers') }} : </h4>
@@ -50,20 +50,22 @@
     {%- if number_of_results != '0' -%}
     <p id="result_count"><small>{{ _('Number of results') }}: {{ number_of_results }}</small></p>
     {%- endif -%}
-    <div id="static-ad-box">
+    <!-- <div id="static-ad-box">
       <h4 class="static-ad-title">Ads</h4>
-      <h3 class="truesearch-title">Truesearch</h3>
-      <a href="https://true-search.io/" class="ad-link">https://true-search.io/</a>
-      <h3 class="ad-title"><a href="https://true-search.io/">The Charitable Works</a></h3>
-      <p class="ad-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae voluptates aspernatur
-        maxime nesciunt
-        obcaecati</p>
+      <h3 class="truesearch-title">{{ affiliate_ad['title'] }}</h3>
+      <a href="{{ affiliate_ad['link'] }}" onclick="redirectToTarget('{{affiliate_ad['link']}}')" class="ad-link">{{ affiliate_ad['link'] }}</a>
+      <h3 class="ad-title"><a href="{{ affiliate_ad['link'] }}" onclick="redirectToTarget('{{affiliate_ad['link']}}')">{{ affiliate_ad['heading'] }}</a></h3>
+      <p class="ad-description">{{ affiliate_ad['description'] }}</p>
+      {% if affiliate_ad['more_links'] %}
       <div class="other-ad-links">
-        <p><a href="https://wishtreetech.com/" class="ad-link">Wishtree</a>
-          <a href="https://true-search.ai/" class="ad-link">Truesearch</a>
+        <p>
+          {% for more_link in affiliate_ad['more_links'] %}
+            <a href="{{ more_link['link'] }}" class="ad-link" onclick="redirectToTarget('{{more_link['link']}}')">{{ more_link['title'] }}</a>
+          {% endfor %}
         </p>
       </div>
-    </div>
+      {% endif %}
+    </div> -->
     {%- if infoboxes -%}
     <div id="infoboxes">
       <details open class="sidebar-collapsable">

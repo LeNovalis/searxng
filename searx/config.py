@@ -14,3 +14,54 @@ SMTP_DATA = {
 
 TO_MAIL = ['roszellmc@protonmail.com']
 SUBJECT = "Feedback"
+
+AFFILIATE_ADS = [
+    {
+        "title": "Truesearch",
+        "link": "https://true-search.io/",
+        "heading": "The Charitable Works 1",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae voluptates aspernatur maxime nesciunt obcaecati",
+        "more_links": [
+            {
+                "title": "Wishtree",
+                "link": "https://wishtreetech.com/"
+            },
+            {
+                "title": "Truesearch",
+                "link": "https://true-search.ai/"
+            }
+        ]
+    },
+    {
+        "title": "Truesearch",
+        "link": "https://true-search.io/",
+        "heading": "The Charitable Works 2",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae voluptates aspernatur maxime nesciunt obcaecati",
+        "more_links": [
+            {
+                "title": "Wishtree",
+                "link": "https://wishtreetech.com/"
+            },
+            {
+                "title": "Truesearch",
+                "link": "https://true-search.ai/"
+            }
+        ]
+    },
+    {
+        "title": "Truesearch",
+        "link": "https://true-search.io/",
+        "heading": "The Charitable Works 3",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae voluptates aspernatur maxime nesciunt obcaecati",
+        "more_links": [
+            {
+                "title": "Wishtree",
+                "link": "https://wishtreetech.com/"
+            },
+            {
+                "title": "Truesearch",
+                "link": "https://true-search.ai/"
+            }
+        ]
+    }
+]
