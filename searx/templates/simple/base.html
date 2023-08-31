@@ -105,8 +105,10 @@
 
     <nav id="links_on_top">
       {%- from 'simple/icons.html' import icon_big -%}
-      <a href="https://www.wikihow.com/Change-Your-Home-Page" class="link_on_top_default">{{
-        icon_big('set-default') }}<span>{{ _('Set as Default') }}</span></a>
+      {% if results %}
+        <a href="https://www.wikihow.com/Change-Your-Home-Page" class="link_on_top_default">{{
+          icon_big('set-default') }}<span>{{ _('Set as Default') }}</span></a>
+      {% endif %}
       {%- block linkto_about -%}
       <a href="{{ url_for('info', pagename='about') }}" class="link_on_top_about">{{
         icon_big('information-circle-outline') }}<span>{{ _('About') }}</span></a>
