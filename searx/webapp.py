@@ -35,6 +35,7 @@ import flask
 
 from flask import (
     Flask,
+    session,
     render_template,
     url_for,
     make_response,
@@ -83,7 +84,6 @@ from searx.webutils import (
     group_engines_in_tab,
 )
 from searx.webadapter import (
-    create_time_groups,
     get_search_query_from_webapp,
     get_selected_categories,
     parse_lang,
@@ -132,7 +132,8 @@ from searx.network import stream as http_stream, set_context_network_name
 from searx.search.checker import get_result as checker_get_result
 import smtplib
 from email.mime.text import MIMEText
-from searx.config import SMTP_DATA, SUBJECT, TO_MAIL, AFFILIATE_ADS
+from searx.config import AD_ROTATE_TIME, SMTP_DATA, SUBJECT, TO_MAIL, AFFILIATE_ADS
+# from flask_pymongo import PyMongo
 
 logger = logger.getChild('webapp')
 
@@ -168,7 +169,9 @@ app.jinja_env.lstrip_blocks = True
 app.jinja_env.add_extension('jinja2.ext.loopcontrols')  # pylint: disable=no-member
 app.jinja_env.filters['group_engines_in_tab'] = group_engines_in_tab  # pylint: disable=no-member
 app.secret_key = settings['server']['secret_key']
-
+# app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=1)	
+# app.config["MONGO_URI"] = "mongodb://localhost:27017/searxng"	
+# mongo = PyMongo(app)
 
 class ExtendedRequest(flask.Request):
     """This class is never initialized and only used for type checking."""
@@ -759,15 +762,12 @@ def search():
         )
     )
 
-    ads_timing = create_time_groups(len(AFFILIATE_ADS))
-    ad_index = None
-    affiliate_ad = []
-    for index, value in enumerate(ads_timing):
-        if value >= datetime.now().second:
-            ad_index = index
-            break
-    if ad_index != None:
-        affiliate_ad = AFFILIATE_ADS[ad_index]
+    current_time = datetime.now()
+    time_value = current_time.hour * 60 * 60 + current_time.minute * 60 + current_time.second
+    ad_index = time_value // (AD_ROTATE_TIME * 60)
+    ad_index = ad_index % len(AFFILIATE_ADS)
+    affiliate_ad = AFFILIATE_ADS[ad_index]
+
     # search_query.lang contains the user choice (all, auto, en, ...)
     # when the user choice is "auto", search.search_query.lang contains the detected language
     # otherwise it is equals to search_query.lang
@@ -1326,6 +1326,17 @@ def feedback():
             server.starttls()
         server.login(SMTP_DATA['user'], SMTP_DATA['password'])
         server.sendmail(SMTP_DATA['user'], TO_MAIL, message.as_string())
+    return Response('success')
+
+@app.route('/set_charity/<path:charity>')	
+def set_charity(charity):	
+    session['charity'] = charity
+    return Response('success')
+
+@app.route('/redirect_to_target/<path:target_url>')	
+def redirect_to_target(target_url):	
+    # if session.get('charity'):	
+    #     mongo.db.affiliate_links.insert_one({'url':target_url, 'charity':session['charity'], 'date_added':datetime.utcnow()})	
     return Response('success')
 
 @app.errorhandler(404)

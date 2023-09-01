@@ -516,7 +516,7 @@ html.no-js #clear_search.hide_if_nojs{display:none}
 .landing-page #q{border-radius:30px 0 0 30px;padding-left:26px}
 .results_endpoint{height:100%!important}
 .landing-page .feedback-container{text-align:right;position: absolute;top: 260px;right: 0;z-index: 1;}
-.landing-page .feedback-btn,.select-submit-btn{background:#6a35ff;color:#fff;border:1px solid #6a35ff;padding:10px 16px;border-radius:5px;cursor:pointer;font-weight:600}
+.landing-page .feedback-btn,.select-submit-btn{background:#6a35ff;color:#fff;border:1px solid #6a35ff;padding:10px 16px;border-radius:5px;cursor:pointer;}
 .landing-page .dropdown{font-size:14px;font-style:normal;font-weight:400;line-height:normal;text-align:right;margin-top:10px}
 input[type=radio]{accent-color:#6a35ff}
 .landing-page .dropdown-list{width:fit-content;background-color:#fff;padding:15px;border-radius:10px;margin: 10px 0 0 auto;position: relative; z-index: 2;text-align: left;opacity: 0.97;}
@@ -530,9 +530,10 @@ input[type=radio]{accent-color:#6a35ff}
 .ad-title a{color: #0000EE;}
 .ad-title a:hover{text-decoration: underline;}
 .ad-title a:visited{color: #0000EE;}
-.ad-link:visited{color: #444;}
+.ad-link:visited, .ad-link:link{color: #444;}
 #static-ad-box{margin: 10px 0 10px;border: 1px solid #ddd;padding: 1rem;font-size: .9em;border-radius: 10px;}
 .truesearch-title{margin: 0;}
+.truesearch-title a:link, .truesearch-title a:visited{color: #444;}
 .ad-description{    margin: 8px 0;}
 @media screen and (min-width:1000px) and (min-height:600px) {
 .landing-page .container {justify-content: center;}}

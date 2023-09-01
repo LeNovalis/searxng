@@ -68,19 +68,31 @@
       const radioButtons = document.querySelectorAll('input[name="charity-list"]');
       for (const radioButton of radioButtons) {
         if (radioButton.checked) {
-          return true; // At least one radio button is selected
+          return radioButton; // At least one radio button is selected
         }
       }
       return false; // No radio button is selected
     }
 
     function selectCharity() {
-      if (isCharitySelected()) {
+      let selected_radio = isCharitySelected();
+      if (selected_radio) {
         document.getElementById('select-label-id').textContent = "Charity selected";
         const charityDropdown = document.getElementById('charity-dropdown');
         charityDropdown.classList.remove('open-dropdown');
         charityDropdown.classList.add('close-dropdown');
+
+        fetch('/set_charity/'+selected_radio.id, {
+          method: 'GET'
+        });
       }
+    }
+
+    function redirectToTarget(target_url) {
+      // Make an HTTP request to the Flask backend
+      fetch('/redirect_to_target/'+target_url, {
+        method: 'GET'
+      });
     }
 
   </script>
