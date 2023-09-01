@@ -517,6 +517,9 @@ html.no-js #clear_search.hide_if_nojs{display:none}
 .results_endpoint{height:100%!important}
 .landing-page .feedback-container{text-align:right;position: absolute;top: 260px;right: 0;z-index: 1;}
 .landing-page .feedback-btn,.select-submit-btn{background:#6a35ff;color:#fff;border:1px solid #6a35ff;padding:10px 16px;border-radius:5px;cursor:pointer;font-weight:600}
+/* #links_on_top .link_on_top_default{background: #06000017;border: 1px solid #0000001c;cursor: pointer;padding: 2px 6px;border-radius: 5px;}
+#links_on_top .link_on_top_default:hover{border: 1px solid #0000005c;}
+#links_on_top .link_on_top_default svg{padding-top: 2px;} */
 .landing-page .dropdown{font-size:14px;font-style:normal;font-weight:400;line-height:normal;text-align:right;margin-top:10px}
 input[type=radio]{accent-color:#6a35ff}
 .landing-page .dropdown-list{width:fit-content;background-color:#fff;padding:15px;border-radius:10px;margin: 10px 0 0 auto;position: relative; z-index: 2;text-align: left;opacity: 0.97;}
