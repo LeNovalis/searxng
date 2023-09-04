@@ -95,6 +95,20 @@
       });
     }
 
+    function toggleOptOut(id){
+      if(id == 'toggle-on-icon'){
+        document.getElementById("toggle-off-icon").style.display = "block";
+        document.getElementById("toggle-on-icon").style.display = "none";
+        document.getElementById("static-ad-box").style.display = "none";
+        document.getElementById('opt-text-id').textContent = "Opt in";
+      } else{
+        document.getElementById("toggle-on-icon").style.display = "block";
+        document.getElementById("toggle-off-icon").style.display = "none";
+        document.getElementById("static-ad-box").style.display = "block";
+        document.getElementById('opt-text-id').textContent = "Opt out";
+      }
+    }
+
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7965866380212291"
     crossorigin="anonymous">
@@ -118,6 +132,9 @@
     <nav id="links_on_top">
       {%- from 'simple/icons.html' import icon_big -%}
       {% if results %}
+      <a href="https://donorbox.org/socialsearch" class="link_on_top_donate">        
+        <button class="donate-btn">Donate</button>
+      </a>
         <a href="https://www.wikihow.com/Change-Your-Home-Page" class="link_on_top_default">{{
           icon_big('set-default') }}<span>{{ _('Set as Default') }}</span></a>
       {% endif %}

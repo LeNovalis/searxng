@@ -94,6 +94,11 @@
     {%- endif -%}
 
     <div id="sidebar-end-collapsable"></div>
+    <div class="opt-ad-btn">
+      <p class="opt-text" id="opt-text-id">Opt out</p>      
+      <span id="toggle-on-icon" onclick="toggleOptOut('toggle-on-icon')">{{icon_big('toggle-on') }}</span>
+      <span id="toggle-off-icon" onclick="toggleOptOut('toggle-off-icon')">{{icon_big('toggle-off') }}</span>
+    </div>
   </div>
 
   {% if corrections %}
