@@ -35,7 +35,6 @@ import flask
 
 from flask import (
     Flask,
-    session,
     render_template,
     url_for,
     make_response,
@@ -132,7 +131,7 @@ from searx.network import stream as http_stream, set_context_network_name
 from searx.search.checker import get_result as checker_get_result
 import smtplib
 from email.mime.text import MIMEText
-from searx.config import AD_ROTATE_TIME, SMTP_DATA, SUBJECT, TO_MAIL, AFFILIATE_ADS
+from searx.config import AD_ROTATE_TIME, CHARITY_LIST, DEFAULT_CHARITY, SMTP_DATA, SUBJECT, TO_MAIL, AFFILIATE_ADS
 # from flask_pymongo import PyMongo
 
 logger = logger.getChild('webapp')
@@ -169,7 +168,6 @@ app.jinja_env.lstrip_blocks = True
 app.jinja_env.add_extension('jinja2.ext.loopcontrols')  # pylint: disable=no-member
 app.jinja_env.filters['group_engines_in_tab'] = group_engines_in_tab  # pylint: disable=no-member
 app.secret_key = settings['server']['secret_key']
-# app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=1)	
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/searxng"	
 # mongo = PyMongo(app)
 
@@ -591,6 +589,8 @@ def index_error(output_format: str, error_message: str):
         # fmt: off
         'index.html',
         selected_categories=get_selected_categories(request.preferences, request.form),
+        charity_list = CHARITY_LIST,
+        default_charity = DEFAULT_CHARITY
         # fmt: on
     )
 
@@ -609,6 +609,8 @@ def index():
         'index.html',
         selected_categories=get_selected_categories(request.preferences, request.form),
         current_locale = request.preferences.get_value("locale"),
+        charity_list = CHARITY_LIST,
+        default_charity = DEFAULT_CHARITY
         # fmt: on
     )
 
@@ -648,6 +650,8 @@ def search():
                 # fmt: off
                 'index.html',
                 selected_categories=get_selected_categories(request.preferences, request.form),
+                charity_list = CHARITY_LIST,
+                default_charity = DEFAULT_CHARITY
                 # fmt: on
             )
         return index_error(output_format, 'No query'), 400
@@ -764,7 +768,7 @@ def search():
 
     current_time = datetime.now()
     time_value = current_time.hour * 60 * 60 + current_time.minute * 60 + current_time.second
-    ad_index = time_value // (AD_ROTATE_TIME * 60)
+    ad_index = time_value // AD_ROTATE_TIME
     ad_index = ad_index % len(AFFILIATE_ADS)
     affiliate_ad = AFFILIATE_ADS[ad_index]
 
@@ -797,7 +801,8 @@ def search():
             fallback=request.preferences.get_value("language")
         ),
         timeout_limit = request.form.get('timeout_limit', None),
-        affiliate_ad = affiliate_ad
+        affiliate_ad = affiliate_ad,
+        default_charity = DEFAULT_CHARITY
         # fmt: on
     )
 
@@ -1328,15 +1333,10 @@ def feedback():
         server.sendmail(SMTP_DATA['user'], TO_MAIL, message.as_string())
     return Response('success')
 
-@app.route('/set_charity/<path:charity>')	
-def set_charity(charity):	
-    session['charity'] = charity
-    return Response('success')
-
-@app.route('/redirect_to_target/<path:target_url>')	
-def redirect_to_target(target_url):	
-    # if session.get('charity'):	
-    #     mongo.db.affiliate_links.insert_one({'url':target_url, 'charity':session['charity'], 'date_added':datetime.utcnow()})	
+@app.route('/redirect_to_target/<path:charity>/<path:target_url>')	
+def redirect_to_target(charity, target_url):	
+    # if charity:	
+    #     mongo.db.affiliate_links.insert_one({'url':target_url, 'charity':charity, 'date_added':datetime.utcnow()})	
     return Response('success')
 
 @app.errorhandler(404)

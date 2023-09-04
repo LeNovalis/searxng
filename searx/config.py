@@ -15,7 +15,7 @@ SMTP_DATA = {
 TO_MAIL = ['roszellmc@protonmail.com']
 SUBJECT = "Feedback"
 
-AD_ROTATE_TIME = 1 #Time in minutes for affiliate ads rotation
+AD_ROTATE_TIME = 15 #Time in seconds for affiliate ads rotation
 AFFILIATE_ADS = [
     {
         "title": "Save 10% today on TrueSearch bookstore",
@@ -30,3 +30,6 @@ AFFILIATE_ADS = [
         "link": "https://true-search.io/"
     }
 ]
+
+CHARITY_LIST = ["Charity 1", "Charity 2", "Charity 3", "Charity 4"]
+DEFAULT_CHARITY = "Charity 1"

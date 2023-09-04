@@ -56,6 +56,9 @@
     function toggleCharity() {
       const charityDropdown = document.getElementById('charity-dropdown');
       if (charityDropdown.classList.contains('close-dropdown')) {
+        if(sessionStorage.getItem('charity')){
+          document.getElementById(sessionStorage.getItem('charity')).checked = true;
+        }
         charityDropdown.classList.remove('close-dropdown');
         charityDropdown.classList.add('open-dropdown');
       } else {
@@ -77,22 +80,27 @@
     function selectCharity() {
       let selected_radio = isCharitySelected();
       if (selected_radio) {
-        document.getElementById('select-label-id').textContent = "Charity selected";
+        // document.getElementById('select-label-id').textContent = "Charity selected";
         const charityDropdown = document.getElementById('charity-dropdown');
         charityDropdown.classList.remove('open-dropdown');
         charityDropdown.classList.add('close-dropdown');
 
-        fetch('/set_charity/'+selected_radio.id, {
-          method: 'GET'
-        });
+        sessionStorage.setItem('charity', selected_radio.id);
+
+        // fetch('/set_charity/'+selected_radio.id, {
+        //   method: 'GET'
+        // });
       }
     }
 
-    function redirectToTarget(target_url) {
-      // Make an HTTP request to the Flask backend
-      fetch('/redirect_to_target/'+target_url, {
-        method: 'GET'
-      });
+    function redirectToTarget(target_url, default_charity) {
+        if(!sessionStorage.getItem('charity')){
+          sessionStorage.setItem('charity', default_charity);
+        }
+        // Make an HTTP request to the Flask backend
+        fetch('/redirect_to_target/'+sessionStorage.getItem('charity')+'/'+target_url, {
+          method: 'GET'
+        });
     }
 
     function toggleOptOut(id){
