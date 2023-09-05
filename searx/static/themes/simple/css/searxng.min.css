@@ -1,6 +1,7 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 @import url(https://fonts.googleapis.com/css2?family=Comfortaa&display=swap);
 html{line-height:1.15;-webkit-text-size-adjust:100%}
+/* width */::-webkit-scrollbar {    width: 5px;  }/* Track */  ::-webkit-scrollbar-track {    background: #f1f1f1;  }    /* Handle */  ::-webkit-scrollbar-thumb {    background: #888;  }    /* Handle on hover */  ::-webkit-scrollbar-thumb:hover {    background: #555;  }
 body{margin:0}
 main{display:block}
 h1{font-size:2em;margin:.67em 0}
@@ -506,7 +507,7 @@ html.no-js #clear_search.hide_if_nojs{display:none}
 .landing-page{position:relative;color:#5c5c5c;font-family:Comfortaa;font-size:16px;font-style:normal;font-weight:400;line-height:normal;}
 /* .landing-page .container{width:650px;position:absolute;left:50%;transform:translate(-50%,10%);text-align:center} */
 .landing-page .container{text-align:center;display: flex;flex-direction: column;height: calc(100vh - 159px);overflow-y: auto;align-items: center;}
-.landing-page .content-wrapper{width: 600px;position: relative;height: 399px;}
+.landing-page .content-wrapper{width: 600px;position: relative;height: 300px;}
 .truesearch_title{font-family:Comfortaa;color:#5c5c5c;font-size:3.75rem;font-weight:700;margin:0;line-height:4.125rem}
 .landing-page .description{font-size:16px;font-style:normal;font-weight:400;line-height:22px;margin:.625rem 0 2.5rem 0}
 .landing-page a{color:#5c5c5c!important}
@@ -516,13 +517,13 @@ html.no-js #clear_search.hide_if_nojs{display:none}
 .landing-page #q{border-radius:30px 0 0 30px;padding-left:26px}
 .results_endpoint{height:100%!important}
 .landing-page .feedback-container{text-align:right;position: absolute;top: 260px;right: 0;z-index: 1;}
-.landing-page .feedback-btn,.select-submit-btn{background:#6a35ff;color:#fff;border:1px solid #6a35ff;padding:10px 16px;border-radius:5px;cursor:pointer;font-weight:600}
+.landing-page .feedback-btn,.select-submit-btn{background:#6a35ff;color:#fff;border:1px solid #6a35ff;padding:10px 16px;border-radius:5px;cursor:pointer;}
 .landing-page .dropdown{font-size:14px;font-style:normal;font-weight:400;line-height:normal;text-align:right;margin-top:10px}
 input[type=radio]{accent-color:#6a35ff}
 .landing-page .dropdown-list{width:fit-content;background-color:#fff;padding:15px;border-radius:10px;margin: 10px 0 0 auto;position: relative; z-index: 2;text-align: left;opacity: 0.97;}
 .landing-page .dropdown-list.close-dropdown{display: none;}
-.landing-page .dropdown-list.open-dropdown{display:block}
-.landing-page .dropdown .select-label{margin:10px 0}
+.landing-page .dropdown-list.open-dropdown{display:block;max-height: 120px;overflow-y: auto;}
+.landing-page .dropdown .select-label{margin:10px 0;font-size: 12px;}
 .landing-page .dropdown-list-item{margin-bottom: 14px;}
 .landing-page .select-label span{padding:5px}
 .static-ad-title{font-weight: normal;}
