@@ -56,6 +56,9 @@
     function toggleCharity() {
       const charityDropdown = document.getElementById('charity-dropdown');
       if (charityDropdown.classList.contains('close-dropdown')) {
+        if(sessionStorage.getItem('charity')){
+          document.getElementById(sessionStorage.getItem('charity')).checked = true;
+        }
         charityDropdown.classList.remove('close-dropdown');
         charityDropdown.classList.add('open-dropdown');
       } else {
@@ -68,18 +71,49 @@
       const radioButtons = document.querySelectorAll('input[name="charity-list"]');
       for (const radioButton of radioButtons) {
         if (radioButton.checked) {
-          return true; // At least one radio button is selected
+          return radioButton; // At least one radio button is selected
         }
       }
       return false; // No radio button is selected
     }
 
     function selectCharity() {
-      if (isCharitySelected()) {
-        document.getElementById('select-label-id').textContent = "Charity selected";
+      let selected_radio = isCharitySelected();
+      if (selected_radio) {
+        // document.getElementById('select-label-id').textContent = "Charity selected";
         const charityDropdown = document.getElementById('charity-dropdown');
         charityDropdown.classList.remove('open-dropdown');
         charityDropdown.classList.add('close-dropdown');
+
+        sessionStorage.setItem('charity', selected_radio.id);
+
+        // fetch('/set_charity/'+selected_radio.id, {
+        //   method: 'GET'
+        // });
+      }
+    }
+
+    function redirectToTarget(target_url, default_charity) {
+        if(!sessionStorage.getItem('charity')){
+          sessionStorage.setItem('charity', default_charity);
+        }
+        // Make an HTTP request to the Flask backend
+        fetch('/redirect_to_target/'+sessionStorage.getItem('charity')+'/'+target_url, {
+          method: 'GET'
+        });
+    }
+
+    function toggleOptOut(id){
+      if(id == 'toggle-on-icon'){
+        document.getElementById("toggle-off-icon").style.display = "block";
+        document.getElementById("toggle-on-icon").style.display = "none";
+        document.getElementById("static-ad-box").style.display = "none";
+        document.getElementById('opt-text-id').textContent = "Opt in";
+      } else{
+        document.getElementById("toggle-on-icon").style.display = "block";
+        document.getElementById("toggle-off-icon").style.display = "none";
+        document.getElementById("static-ad-box").style.display = "block";
+        document.getElementById('opt-text-id').textContent = "Opt out";
       }
     }
 
@@ -106,6 +140,9 @@
     <nav id="links_on_top">
       {%- from 'simple/icons.html' import icon_big -%}
       {% if results %}
+      <a href="https://donorbox.org/socialsearch" class="link_on_top_donate">        
+        <button class="donate-btn">Donate</button>
+      </a>
         <a href="https://www.wikihow.com/Change-Your-Home-Page" class="link_on_top_default">{{
           icon_big('set-default') }}<span>{{ _('Set as Default') }}</span></a>
       {% endif %}

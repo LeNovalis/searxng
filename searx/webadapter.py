@@ -294,17 +294,3 @@ def get_search_query_from_webapp(
         query_engineref_list_notoken,
         selected_locale,
     )
-
-def create_time_groups(count):
-    if count < 1:
-        return []
-
-    groups = []
-    time_per_group = 60 // count  # Calculate minutes per group
-    remainder = 60 % count
-
-    for i in range(count):
-        start_time = i * time_per_group + min(i, remainder)
-        end_time = start_time + time_per_group + (1 if i < remainder else 0) - 1
-        groups.append(end_time)
-    return groups

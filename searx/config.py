@@ -15,53 +15,21 @@ SMTP_DATA = {
 TO_MAIL = ['roszellmc@protonmail.com']
 SUBJECT = "Feedback"
 
+AD_ROTATE_TIME = 15 #Time in seconds for affiliate ads rotation
 AFFILIATE_ADS = [
     {
-        "title": "Truesearch",
-        "link": "https://true-search.io/",
-        "heading": "The Charitable Works 1",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae voluptates aspernatur maxime nesciunt obcaecati",
-        "more_links": [
-            {
-                "title": "Wishtree",
-                "link": "https://wishtreetech.com/"
-            },
-            {
-                "title": "Truesearch",
-                "link": "https://true-search.ai/"
-            }
-        ]
+        "title": "Save 10% today on TrueSearch bookstore",
+        "link": "https://true-search.io/"
     },
     {
-        "title": "Truesearch",
-        "link": "https://true-search.io/",
-        "heading": "The Charitable Works 2",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae voluptates aspernatur maxime nesciunt obcaecati",
-        "more_links": [
-            {
-                "title": "Wishtree",
-                "link": "https://wishtreetech.com/"
-            },
-            {
-                "title": "Truesearch",
-                "link": "https://true-search.ai/"
-            }
-        ]
+        "title": "Save 15% today on TrueSearch bookstore",
+        "link": "https://true-search.io/"
     },
     {
-        "title": "Truesearch",
-        "link": "https://true-search.io/",
-        "heading": "The Charitable Works 3",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae voluptates aspernatur maxime nesciunt obcaecati",
-        "more_links": [
-            {
-                "title": "Wishtree",
-                "link": "https://wishtreetech.com/"
-            },
-            {
-                "title": "Truesearch",
-                "link": "https://true-search.ai/"
-            }
-        ]
+        "title": "Save 20% today on TrueSearch bookstore",
+        "link": "https://true-search.io/"
     }
 ]
+
+CHARITY_LIST = ["Charity 1", "Charity 2", "Charity 3", "Charity 4"]
+DEFAULT_CHARITY = "Charity 1"
