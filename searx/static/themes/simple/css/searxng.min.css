@@ -534,7 +534,7 @@ input[type=radio]{accent-color:#6a35ff}
 .ad-title a:visited{color:#00e}
 .ad-link:link,.ad-link:visited{color:#444}
 #static-ad-box{margin:10px 0 10px;border:1px solid #ddd;padding:1rem;font-size:.9em;border-radius:10px}
-.truesearch-title{margin:0}
+.truesearch-title{margin:0;font-size:13px;font-weight: 600;}
 .truesearch-title a:link,.truesearch-title a:visited{color:#444}
 .ad-description{margin:8px 0}
 @media screen and (min-height:500px){

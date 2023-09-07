@@ -53,6 +53,12 @@
     window.feedbackfin.config.url = "/feedback";
   </script>
   <script>
+    window.onload = function() {
+      if(sessionStorage.getItem('charity')){
+        document.getElementById('select-label-id').textContent = "Charity selected";
+      }
+    }
+
     function toggleCharity() {
       const charityDropdown = document.getElementById('charity-dropdown');
       if (charityDropdown.classList.contains('close-dropdown')) {
@@ -80,27 +86,25 @@
     function selectCharity() {
       let selected_radio = isCharitySelected();
       if (selected_radio) {
-        // document.getElementById('select-label-id').textContent = "Charity selected";
+        document.getElementById('select-label-id').textContent = "Charity selected";
         const charityDropdown = document.getElementById('charity-dropdown');
         charityDropdown.classList.remove('open-dropdown');
         charityDropdown.classList.add('close-dropdown');
 
         sessionStorage.setItem('charity', selected_radio.id);
-
-        // fetch('/set_charity/'+selected_radio.id, {
-        //   method: 'GET'
-        // });
       }
     }
 
     function redirectToTarget(target_url, default_charity) {
-      if (!sessionStorage.getItem('charity')) {
-        sessionStorage.setItem('charity', default_charity);
-      }
-      // Make an HTTP request to the Flask backend
-      fetch('/redirect_to_target/' + sessionStorage.getItem('charity') + '/' + target_url, {
-        method: 'GET'
-      });
+        let charity = default_charity;
+        if(sessionStorage.getItem('charity')){
+          charity = sessionStorage.getItem('charity');
+          // sessionStorage.setItem('charity', default_charity);
+        }
+        // Make an HTTP request to the Flask backend
+        fetch('/redirect_to_target/'+charity+'/'+target_url, {
+          method: 'GET'
+        });
     }
 
     function toggleOptOut(id) {
@@ -108,12 +112,12 @@
         document.getElementById("toggle-off-icon").style.display = "block";
         document.getElementById("toggle-on-icon").style.display = "none";
         document.getElementById("static-ad-box").style.display = "none";
-        document.getElementById('opt-text-id').textContent = "Opt in";
-      } else {
+        document.getElementById('opt-text-id').textContent = "Opt-in of Ads";
+      } else{
         document.getElementById("toggle-on-icon").style.display = "block";
         document.getElementById("toggle-off-icon").style.display = "none";
         document.getElementById("static-ad-box").style.display = "block";
-        document.getElementById('opt-text-id').textContent = "Opt out";
+        document.getElementById('opt-text-id').textContent = "Opt-out of Ads";
       }
     }
 

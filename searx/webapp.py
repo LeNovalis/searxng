@@ -132,7 +132,8 @@ from searx.search.checker import get_result as checker_get_result
 import smtplib
 from email.mime.text import MIMEText
 from searx.config import AD_ROTATE_TIME, CHARITY_LIST, DEFAULT_CHARITY, SMTP_DATA, SUBJECT, TO_MAIL, AFFILIATE_ADS
-# from flask_pymongo import PyMongo
+from flask_pymongo import pymongo
+from dotenv import load_dotenv
 
 logger = logger.getChild('webapp')
 
@@ -170,6 +171,9 @@ app.jinja_env.filters['group_engines_in_tab'] = group_engines_in_tab  # pylint: 
 app.secret_key = settings['server']['secret_key']
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/searxng"	
 # mongo = PyMongo(app)
+load_dotenv()
+client = pymongo.MongoClient(os.getenv('MONGODB_CONNECTION_STRING'))
+db = client.get_database('trueSearch')
 
 class ExtendedRequest(flask.Request):
     """This class is never initialized and only used for type checking."""
@@ -1335,8 +1339,8 @@ def feedback():
 
 @app.route('/redirect_to_target/<path:charity>/<path:target_url>')	
 def redirect_to_target(charity, target_url):	
-    # if charity:	
-    #     mongo.db.affiliate_links.insert_one({'url':target_url, 'charity':charity, 'date_added':datetime.utcnow()})	
+    if charity:	
+        db.affiliate_link.insert_one({'url':target_url, 'charity':charity, 'date_added':datetime.utcnow()})	
     return Response('success')
 
 @app.errorhandler(404)
