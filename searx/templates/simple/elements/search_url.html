@@ -2,7 +2,7 @@
   <details class="sidebar-collapsable">
     <summary class="title" id="search_url-title">{{ _('Search URL') }}</summary>
     <div class="selectable_url">
-      <pre>{{ url_for('search', _external=True) }}?q={{ q|urlencode }}&amp;language={{ current_language }}&amp;time_range={{ time_range }}&amp;safesearch={{ safesearch }}
+      <pre>{{ request_url }}?q={{ q|urlencode }}&amp;language={{ current_language }}&amp;time_range={{ time_range }}&amp;safesearch={{ safesearch }}
         {%- if pageno > 1 -%}
           &amp;pageno={{ pageno }}
         {%- endif -%}

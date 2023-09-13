@@ -797,7 +797,8 @@ def search():
             fallback=request.preferences.get_value("language")
         ),
         timeout_limit = request.form.get('timeout_limit', None),
-        affiliate_ad = affiliate_ad
+        affiliate_ad = affiliate_ad,
+        request_url=request.url
         # fmt: on
     )
 
