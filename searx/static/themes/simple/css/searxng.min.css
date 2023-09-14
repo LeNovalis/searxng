@@ -826,4 +826,25 @@ article[data-vim-selected]{border:1px solid var(--color-result-vim-arrow);border
     .results_endpoint #search_header{padding-top: 4.5em;}
     .results_endpoint #links_on_top{top: 0.8rem;left: 4rem;text-align: left;}
 }
+
+@media screen and (max-width:1023px){
+    #static-ad-box, .opt-ad-btn, .results_endpoint .link_on_top_about span, .results_endpoint .link_on_top_about svg, .results_endpoint .link_on_top_preferences span, .results_endpoint .link_on_top_preferences svg{
+        display: none;
+    }
+    #results {
+        grid-template-areas:
+        "sidebar"
+        "corrections"
+        "answers"
+        "urls"
+        "pagination";
+
+        margin: 0;
+        grid-template-columns: 100%;
+    }
+    .results_endpoint #search{
+        width: 100%;
+    }
+
+}
 pre code{white-space:pre-wrap}
