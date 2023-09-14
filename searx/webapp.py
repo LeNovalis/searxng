@@ -806,7 +806,8 @@ def search():
         ),
         timeout_limit = request.form.get('timeout_limit', None),
         affiliate_ad = affiliate_ad,
-        default_charity = DEFAULT_CHARITY
+        default_charity = DEFAULT_CHARITY,
+        request_url=request.url
         # fmt: on
     )
 

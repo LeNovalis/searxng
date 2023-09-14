@@ -533,7 +533,7 @@ input[type=radio]{accent-color:#6a35ff}
 .ad-title a:hover{text-decoration:underline}
 .ad-title a:visited{color:#00e}
 .ad-link:link,.ad-link:visited{color:#444}
-#static-ad-box{margin:10px 0 10px;border:1px solid #ddd;padding:1rem;font-size:.9em;border-radius:10px;background: var(--color-result-background);}
+#static-ad-box{margin:10px 0 10px;border:1px solid #ddd;padding:1rem;font-size:.9em;border-radius:10px;background: var(--color-result-background); display: none;}
 .truesearch-title{margin:0;font-size:13px;font-weight: 600;}
 .truesearch-title a:link,.truesearch-title a:visited{color:#444}
 .ad-description{margin:8px 0}
@@ -729,7 +729,7 @@ summary.title{cursor:pointer;padding-top:1em}
 .toggle-btn{width:50px}
 .opt-ad-btn{margin:0;margin-top:10px}
 .opt-text{margin:0;color:#444}
-#toggle-on-icon{display:block}
+#toggle-on-icon{display:none}
 #toggle-off-icon{display:none}
 #pagination{grid-area:pagination}
 #pagination br{clear:both}
