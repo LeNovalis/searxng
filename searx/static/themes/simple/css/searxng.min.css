@@ -562,7 +562,6 @@ input[type=radio]{accent-color:#6a35ff}
 .search_filters{margin:0}
 .category{display:inline-block;width:auto;margin:0}
 .category label{padding:1rem!important;margin:0!important}
-.category label svg{display:none}
 #search_view:focus-within{display:block;background-color:var(--color-search-background);position:absolute;top:0;height:100%;width:100%;z-index:10000}
 #search_view:focus-within .search_box{border-bottom:1px solid var(--color-search-border);width:100%;border-radius:0;box-shadow:none}
 #search_view:focus-within .search_box #send_search{margin-right:0!important}
@@ -846,5 +845,12 @@ article[data-vim-selected]{border:1px solid var(--color-result-vim-arrow);border
         width: 100%;
     }
 
+}
+
+@media screen and (max-width:767px){
+    #links_on_top{display: none;}
+    .results_endpoint #search_header{padding-top: 1rem;}
+    /* .checkbox_social_media, .checkbox_files, .checkbox_science, .checkbox_it{display: none;} */
+    .category:nth-last-child(-n + 5){display: none;}
 }
 pre code{white-space:pre-wrap}
