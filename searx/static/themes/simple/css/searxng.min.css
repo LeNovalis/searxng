@@ -848,7 +848,7 @@ article[data-vim-selected]{border:1px solid var(--color-result-vim-arrow);border
 }
 
 @media screen and (max-width:767px){
-    .donate-btn, .link_on_top_default{display: none;}
+    .results_endpoint #links_on_top{display: none;}
     #safesearch{display: none;}
     .results_endpoint #search_header{padding-top: 1rem;}
     /* .checkbox_social_media, .checkbox_files, .checkbox_science, .checkbox_it{display: none;} */
