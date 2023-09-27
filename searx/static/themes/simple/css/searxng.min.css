@@ -766,9 +766,10 @@ summary.title{cursor:pointer;padding-top:1em}
 #main_results div#results.only_template_images{margin:1rem .5rem 0 .5rem;display:grid;grid-template-columns:100%;grid-template-rows:min-content min-content min-content 1fr min-content;gap:0;grid-template-areas:"corrections" "answers" "sidebar" "urls" "pagination"}
 #main_results div#results.only_template_images #sidebar{display:none}
 #main_results div#results.only_template_images #urls{margin:0;display:flex;flex-wrap:wrap}
-#main_results div#results.only_template_images #urls::after{flex-grow:10;content:""}
+.results_endpoint div#results.only_template_images #urls{margin:0;display:flex;flex-wrap:wrap}
+.results_endpoint div#results.only_template_images #urls::after{flex-grow:10;content:""}
 #main_results div#results.only_template_images #backToTop{left:auto;right:1rem}
-#main_results div#results.only_template_images #pagination{margin-right:4rem}
+.results_endpoint div#results.only_template_images #pagination{margin-right:4rem}
 @media screen and (max-width:50em){
 #links_on_top span{}
 .page_with_header{margin:2rem .5rem;width:auto}

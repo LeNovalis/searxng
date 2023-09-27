@@ -23,13 +23,16 @@
 {% endif %}
 
 <div id="results" class="{{ only_template }}">
-  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5765281256889800"
-    crossorigin="anonymous">
-    </script> -->
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5765281256889800"
+    crossorigin="anonymous"></script>
   <!-- AdUnit1 -->
-  <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5765281256889800" data-ad-slot="1240164203"
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5765281256889800" data-ad-slot="1240164203"
     data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>     (adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
   {% if answers -%}
   <div id="answers" role="complementary" aria-labelledby="answers-title">
     <h4 class="title" id="answers-title">{{ _('Answers') }} : </h4>
@@ -98,7 +101,7 @@
 
     <div id="sidebar-end-collapsable"></div>
     <div class="opt-ad-btn">
-      <p class="opt-text" id="opt-text-id"></p>      
+      <p class="opt-text" id="opt-text-id"></p>
       <span id="toggle-on-icon" onclick="toggleOptOut('toggle-on-icon')">{{icon_big('toggle-on') }}</span>
       <span id="toggle-off-icon" onclick="toggleOptOut('toggle-off-icon')">{{icon_big('toggle-off') }}</span>
     </div>
