@@ -18,11 +18,11 @@ SUBJECT = "Feedback"
 AD_ROTATE_TIME = 15 #Time in seconds for affiliate ads rotation
 AFFILIATE_ADS = [
     {
-        "title": "Save 10% today at our affiliate bookstores",
+        "title": "Save today at our affiliate bookstores",
         "link": "https://true-search.io/"
     },
     {
-        "title": "Save 12% today at our affiliate bookstores",
+        "title": "Save today at our affiliate bookstores",
         "link": "https://true-search.io/"
     },
     {
