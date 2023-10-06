@@ -828,7 +828,7 @@ article[data-vim-selected]{border:1px solid var(--color-result-vim-arrow);border
 }
 
 @media screen and (max-width:1023px){
-    #static-ad-box, .opt-ad-btn, .results_endpoint .link_on_top_about span, .results_endpoint .link_on_top_about svg, .results_endpoint .link_on_top_preferences span, .results_endpoint .link_on_top_preferences svg{
+    #google-adunit, #sidebar, #static-ad-box, .opt-ad-btn, .results_endpoint .link_on_top_about span, .results_endpoint .link_on_top_about svg, .results_endpoint .link_on_top_preferences span, .results_endpoint .link_on_top_preferences svg{
         display: none;
     }
     #results {
