@@ -131,7 +131,7 @@ from searx.network import stream as http_stream, set_context_network_name
 from searx.search.checker import get_result as checker_get_result
 import smtplib
 from email.mime.text import MIMEText
-from searx.config import AD_ROTATE_TIME, CHARITY_LIST, DEFAULT_CHARITY, SMTP_DATA, SUBJECT, TO_MAIL, AFFILIATE_ADS
+from searx.config import AD_ROTATE_TIME, CHARITY_LIST, DEFAULT_CHARITY, SEARCH_URL, SMTP_DATA, SUBJECT, TO_MAIL, AFFILIATE_ADS
 from flask_pymongo import pymongo
 from dotenv import load_dotenv
 
@@ -807,7 +807,7 @@ def search():
         timeout_limit = request.form.get('timeout_limit', None),
         affiliate_ad = affiliate_ad,
         default_charity = DEFAULT_CHARITY,
-        request_url=request.url
+        request_url=SEARCH_URL
         # fmt: on
     )
 

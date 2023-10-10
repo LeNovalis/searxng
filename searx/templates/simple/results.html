@@ -23,16 +23,16 @@
 {% endif %}
 
 <div id="results" class="{{ only_template }}">
-  <span id="google-adunit">
+  <!-- <span id="google-adunit">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5765281256889800"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
   <!-- AdUnit1 -->
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5765281256889800" data-ad-slot="1240164203"
+  <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5765281256889800" data-ad-slot="1240164203"
     data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
-  </span>
+  </span> -->
 
   {% if answers -%}
   <div id="answers" role="complementary" aria-labelledby="answers-title">
@@ -59,8 +59,8 @@
           onclick="redirectToTarget('{{affiliate_ad['link']}}', '{{default_charity}}')">{{ affiliate_ad['title'] }}</a>
       </h3>
       <!-- <h3 class="truesearch-title">{{ affiliate_ad['title'] }}</h3> -->
-      <a href="{{ affiliate_ad['link'] }}" onclick="redirectToTarget('{{affiliate_ad['link']}}', '{{default_charity}}')"
-        class="ad-link">{{ affiliate_ad['link'] }}</a>
+      <!-- <a href="{{ affiliate_ad['link'] }}" onclick="redirectToTarget('{{affiliate_ad['link']}}', '{{default_charity}}')"
+        class="ad-link">{{ affiliate_ad['link'] }}</a> -->
 
       <!-- <p class="ad-description">{{ affiliate_ad['description'] }}</p>
       {% if affiliate_ad['more_links'] %}

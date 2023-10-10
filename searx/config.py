@@ -15,6 +15,8 @@ SMTP_DATA = {
 TO_MAIL = ['roszellmc@protonmail.com']
 SUBJECT = "Feedback"
 
+SEARCH_URL = "https://true-search.io/search"
+
 AD_ROTATE_TIME = 15 #Time in seconds for affiliate ads rotation
 AFFILIATE_ADS = [
     {
