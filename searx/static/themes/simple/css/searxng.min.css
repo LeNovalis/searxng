@@ -848,6 +848,8 @@ article[data-vim-selected]{border:1px solid var(--color-result-vim-arrow);border
 
 }
 
+#feedbackfin__container{z-index: 20000;}
+
 @media screen and (max-width:767px){
     .results_endpoint #links_on_top{display: none;}
     #safesearch{display: none;}
