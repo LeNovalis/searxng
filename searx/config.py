@@ -33,5 +33,5 @@ AFFILIATE_ADS = [
     }
 ]
 
-CHARITY_LIST = ["Charity 1", "Charity 2", "Charity 3", "Charity 4"]
-DEFAULT_CHARITY = "Charity 1"
+CHARITY_LIST = ["American Red Cross", "Habitat for Humanity", "New York Supportive Housing"]
+DEFAULT_CHARITY = "American Red Cross"
