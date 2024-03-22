@@ -48,7 +48,8 @@
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
 
   <!--HTML header script -->
-  <script src="https://unpkg.com/feedbackfin@^1" defer></script>
+  <!-- <script src="https://unpkg.com/feedbackfin@^1" defer></script> -->
+  <script src="{{ url_for('static', filename='js/index.umd.js') }}" defer></script>
   <script>
     window.feedbackfin = { config: {}, ...window.feedbackfin };
     window.feedbackfin.config.url = "/feedback";
