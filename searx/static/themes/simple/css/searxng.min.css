@@ -1,17 +1,17 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 @font-face {
     font-display: swap; 
-    font-family: 'Comfortaa';
+    font-family: 'Source Sans Pro';
     font-style: normal;
     font-weight: 400;
-    src: url('./fonts/comfortaa-v45-latin-regular.woff2') format('woff2'); 
+    src: url('./fonts/SourceSansPro-Regular.otf') format('otf');    
   }
 html{line-height:1.15;-webkit-text-size-adjust:100%}
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:#f1f1f1}
 ::-webkit-scrollbar-thumb{background:#888}
 ::-webkit-scrollbar-thumb:hover{background:#555}
-body{margin:0}
+body{margin:0;font-family:'Source Sans Pro',sans-serif}
 main{display:block}
 h1{font-size:2em;margin:.67em 0}
 hr{box-sizing:content-box;height:0;overflow:visible}
@@ -512,10 +512,10 @@ html.no-js #clear_search.hide_if_nojs{display:none}
 .search_filters select:focus,.search_filters select:hover{color:var(--color-base-font)}
 .index_endpoint main,.search_endpoint main{margin-top:5rem;margin-bottom:0}
 .index_endpoint,.search_endpoint{background:url(images/landing-background.png) no-repeat;background-size:cover;height:100vh;width:100%;background-position:center}
-.landing-page{position:relative;color:#5c5c5c;font-family:Comfortaa;font-size:16px;;line-height:normal}
+.landing-page{position:relative;color:#5c5c5c;font-family:'Source Sans Pro',sans-serif;font-size:16px;;line-height:normal}
 .landing-page .container{text-align:center;display:flex;flex-direction:column;height:calc(100vh - 159px);overflow-y:auto;align-items:center}
 .landing-page .content-wrapper{width:600px;position:relative;height:300px}
-.truesearch_title{font-family:Comfortaa;color:#5c5c5c;font-size:3.75rem;font-weight:700;margin:0;line-height:4.125rem}
+.truesearch_title{font-family:'Source Sans Pro',sans-serif;color:#5c5c5c;font-size:3.75rem;font-weight:700;margin:0;line-height:4.125rem}
 .landing-page .description{font-size:16px;font-style:normal;font-weight:400;line-height:22px;margin:.625rem 0 2.5rem 0}
 .landing-page a{color:#5c5c5c!important}
 .landing-page a:hover{color:var(--color-url-visited-font)!important}
